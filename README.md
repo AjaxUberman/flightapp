@@ -3,7 +3,6 @@
 ## Teknoloji Seti
 
 Bu projede MERN (MongoDB, Express.js, React.js, Node.js) teknoloji seti kullanılarak Amsterdam Schipol Havalimanı'nın API'sinden alınan veriler kullanılarak uçuşlar listelenmektedir.
-Estetik ve kullanıcı dostu bir arayüz oluşturmak için Tailwind CSS, Ant Design, Material UI, Day.js, FontAwesome ve SweetAlert kullanılmıştır.
 Responsive arayüzü oluştururken Tailwind, Day.JS, React Icons, React Toast kullanıldı.
 Dış kaynak JSON dosyaları ile havaalanı isimleri ve hava yolu şirketi isimleri alındı.
 
