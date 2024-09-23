@@ -16,6 +16,7 @@ dayjs.extend(timezone);
 
 const FlightCard = ({ flightDetails }) => {
   const [loading, setLoading] = useState(false);
+  const [detailsVisible, setDetailsVisible] = useState({}); // Detaylar için state oluşturduk
   const navigate = useNavigate();
 
   const calculateFlightDuration = (departureTime, arrivalTime) => {
@@ -39,6 +40,13 @@ const FlightCard = ({ flightDetails }) => {
       const stops = destinations.length - 1;
       return `${stops} stop${stops > 1 ? "s" : ""}`;
     }
+  };
+
+  const toggleDetails = (index) => {
+    setDetailsVisible((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
   };
 
   const bookHandler = async (flight) => {
@@ -188,6 +196,21 @@ const FlightCard = ({ flightDetails }) => {
                 </p>
               </div>
             </div>
+            <button
+              className="mt-3 text-primary underline"
+              onClick={() => toggleDetails(index)}
+            >
+              {detailsVisible[index] ? "Hide Details" : "Show Details"}
+            </button>
+            {detailsVisible[index] && (
+              <div className="mt-3 text-gray-700">
+                <p>Flight Number: {flight.flightNumber}</p>
+                <p>Aircraft Type: {flight.aircraftType.iataMain}</p>
+                <p>Service Type: {flight.serviceType}</p>
+                <p>Terminal: {flight.terminal}</p>
+                {/* Burada diğer detaylar gösterilebilir */}
+              </div>
+            )}
             <div className="flex justify-between relative">
               <div className="mt-5">
                 <p className="font-bold text-primary">Price: $200</p>

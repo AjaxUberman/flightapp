@@ -94,6 +94,7 @@ const FlightSearch = ({ setFlightDetails }) => {
       });
 
       const flights = response.data.flights.flights;
+      console.log(flights);
 
       /* Kalkış ve varışları filtreleme */
       if (Array.isArray(flights)) {
